@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* =========================================================
+   APPETITE — BASE DESIGN TOKENS
+   White-dominant surface, appetizing red accent, warm ink.
+   Tailwind v4 reads these @theme vars to generate utilities
+   (e.g. bg-brand, text-brand, bg-cream, font-display).
+   ========================================================= */
+@theme {
+  /* Brand red — the single accent. Used for CTAs, prices,
+     active states, key headings. Not for page backgrounds. */
+  --color-brand: #e4222e;
+  --color-brand-dark: #c21420; /* hover / pressed */
+  --color-brand-soft: #ffe3e4; /* subtle red-tinted fill */
+  --color-brand-wash: #fff3f3; /* faint red section wash */
+
+  /* Neutrals */
+  --color-ink: #1a1512; /* warm near-black text */
+  --color-muted: #6f6a66; /* secondary text */
+  --color-cream: #fff7f3; /* warm off-white section bg */
+  --color-line: #f1e9e4; /* hairline borders */
+
+  /* Type */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  /* Rounding — Appetite is a rounded brand */
+  --radius: 0.875rem;
+}
+
+/* Base surface: white dominant, warm ink text */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible, visible focus for keyboard users everywhere */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Respect reduced-motion for the delivery animation and all motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Delivery strip: a panda on a scooter scoots across the top bar.
+   Pure CSS, decorative, and disabled under reduced-motion above. */
+@keyframes appetite-scoot {
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+.appetite-scoot {
+  animation: appetite-scoot 9s linear infinite;
+}
