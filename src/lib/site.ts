@@ -17,6 +17,7 @@ export const site = {
 export const mainNav: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "Menu", href: "/menu" },
+  { label: "Help me decide", href: "/recommend" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

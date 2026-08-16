@@ -24,7 +24,10 @@ export default function Hero() {
               Appetite brings the neighbourhood to your table.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button href="/menu" size="lg">
+              <Button href="/recommend" size="lg">
+                Help me decide
+              </Button>
+              <Button href="/menu" size="lg" variant="secondary">
                 Explore the menu
               </Button>
               <Button href="/signup" size="lg" variant="secondary">
